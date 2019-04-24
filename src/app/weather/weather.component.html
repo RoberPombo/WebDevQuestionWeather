@@ -1,0 +1,64 @@
+<mat-accordion>
+    <mat-expansion-panel [(expanded)]="statusExpansion">
+
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ 'quest.title' | translate}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{ 'quest.info' | translate}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center center">
+            <mat-form-field fxFlex="20" fxFlex.xs="100">
+                <mat-select [(ngModel)]="selectLocation" placeholder="{{ 'quest.loc' | translate }}" type="text" name="location" (selectionChange)="updateQuestionForm()">
+                    <mat-option *ngFor="let location of LOCATIONS" [value]="location">
+                        {{ location | translate }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="20" fxFlex.xs="100">
+                <mat-select [(ngModel)]="selectMetric" placeholder="{{ 'quest.met' | translate }}" type="text" name="metric" (selectionChange)="updateQuestionForm()">
+                    <mat-option *ngFor="let metric of METRICS" [value]="metric">
+                        {{ metric | translate }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="20" fxFlex.xs="100">
+                <input matInput [matDatepicker]="datS" placeholder="{{ 'quest.dat1' | translate }}" [min]="question.minDate" [max]="question.maxDate" [formControl]="datepickerSta">
+                <mat-datepicker-toggle matSuffix [for]="datS"></mat-datepicker-toggle>
+                <mat-datepicker #datS [startAt]="question.minDate" startView="multi-year" (yearSelected)="chosenYearHandler($event, datepickerSta)" (monthSelected)="chosenMonthHandler($event, datS, datepickerSta)" panelClass="month-picker"></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="question.dateSta" fxFlex="20" fxFlex.xs="100">
+                <input matInput [matDatepicker]="datE" placeholder="{{ 'quest.dat2' | translate }}" [min]="question.dateSta" [max]="question.maxDate" [formControl]="datepickerEnd">
+                <mat-datepicker-toggle matSuffix [for]="datE"></mat-datepicker-toggle>
+                <mat-datepicker #datE startView="multi-year" (yearSelected)="chosenYearHandler($event, datepickerEnd)" (monthSelected)="chosenMonthHandler($event, datE, datepickerEnd)" panelClass="month-picker"></mat-datepicker>
+            </mat-form-field>
+
+            <div fxFlex="8" fxFlex.xs="8" (click)="reloadQuestion()">
+                <img src="/assets/img/refresh.png" width="20" height="20" alt="">
+            </div>
+
+        </div>
+
+    </mat-expansion-panel>
+</mat-accordion>
+
+<mat-card *ngIf="question.dateEnd">
+    <div *ngIf="loading" fxLayoutAlign="center center">
+        <mat-spinner>
+        </mat-spinner>
+    </div>
+
+    <div *ngIf="!loading">
+        <h4 fxLayoutAlign="center start"><strong>
+            {{ 'chart.title1' | translate }}{{ selectMetric | translate }}{{ 'chart.title2' | translate }}{{ selectLocation | translate }}{{ 'chart.title3' | translate }}
+        </strong></h4>
+        <div [chart]="chartWeather"></div>
+    </div>
+
+</mat-card>

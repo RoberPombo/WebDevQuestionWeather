@@ -1,0 +1,23 @@
+{
+    "nav.titulo": "Weather UK",
+
+    "quest.title": "Weather to show",
+    "quest.info": "Select the location, the metric and a range of dates.",
+    "quest.loc": "Select Location",
+    "quest.met": "Select Metric",
+    "quest.dat1": "Choose a date start",
+    "quest.dat2": "Choose a date end",
+
+    "UK": "United Kingdon",
+    "England": "England",
+    "Scotland": "Scotland",
+    "Wales": "Wales",
+
+    "Tmin": "min. temperature",
+    "Tmax": "max. temperature",
+    "Rainfall": "rainfall",
+
+    "chart.title1": "Chart of ",
+    "chart.title2": " in ",
+    "chart.title3": ":"
+}

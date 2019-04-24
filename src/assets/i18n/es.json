@@ -1,0 +1,23 @@
+{
+    "nav.titulo": "Metereología Reino Unido",
+
+    "quest.title": "Metereología a mostrar",
+    "quest.info": "Elige una localizacion, una metrica y un rango de fechas.",
+    "quest.loc": "Elige una localizacion",
+    "quest.met": "Elige una metrica",
+    "quest.dat1": "Escoge fecha inicial",
+    "quest.dat2": "Escoge fecha final",
+
+    "UK": "Reino Unido",
+    "England": "Inglaterra",
+    "Scotland": "Escocia",
+    "Wales": "Gales",
+
+    "Tmin": "min. temperatura",
+    "Tmax": "máx. temperatura",
+    "Rainfall": "precipitaciones",
+
+    "chart.title1": "Gráfica de ",
+    "chart.title2": " en el ",
+    "chart.title3": ":"
+}

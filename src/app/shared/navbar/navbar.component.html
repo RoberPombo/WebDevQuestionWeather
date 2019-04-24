@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" fxLayout="row nowrap" fxLayoutGap="10px">
+    <div fxFlex="10" fxLayoutAlign="start center"><img src="/assets/img/weather.png" width="30" height="30" alt=""></div>
+    <div fxFlex="80" fxLayoutAlign="center center">{{ 'nav.titulo' | translate }}</div>
+    <div fxLayout="column nowrap" fxFlex="10" fxLayoutAlign="end center" fxLayoutGap="5px">
+        <img src="/assets/img/banderaUK.png" [width]="bdUK.w" [height]="bdUK.h" alt="English" (click)="selectLanguage('en')" style="cursor: pointer;">
+        <img src="/assets/img/banderaSP.png" [width]="bdSP.w" [height]="bdSP.h" alt="Español" (click)="selectLanguage('es')" style="cursor: pointer;">
+    </div>
+</mat-toolbar>
